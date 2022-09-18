@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 
 /**
  * Handles reading from and writing to the config file
@@ -118,9 +119,9 @@ public class ConfigHandler {
 	 */
 	public Optional<Text> getZoomFactorError(double zoomFactor) {
 		if (zoomFactor < ConfigUtil.MIN_ZOOM_FACTOR) {
-			return Optional.of(Text.translatable(ConfigUtil.ERROR_ZOOM_FACTOR_TOO_SMALL));
+			return Optional.of(new TranslatableText(ConfigUtil.ERROR_ZOOM_FACTOR_TOO_SMALL));
 		} else if (zoomFactor > ConfigUtil.MAX_ZOOM_FACTOR) {
-			return Optional.of(Text.translatable(ConfigUtil.ERROR_ZOOM_FACTOR_TOO_LARGE));
+			return Optional.of(new TranslatableText(ConfigUtil.ERROR_ZOOM_FACTOR_TOO_LARGE));
 		}
 
 		return Optional.empty();
@@ -142,9 +143,9 @@ public class ConfigHandler {
 	 */
 	public Optional<Text> getSmoothZoomDurationMillisError(long millis) {
 		if (millis < ConfigUtil.MIN_SMOOTH_ZOOM_DURATION_MILLIS) {
-			return Optional.of(Text.translatable(ConfigUtil.ERROR_SMOOTH_ZOOM_DURATION_MILLIS_TOO_SMALL));
+			return Optional.of(new TranslatableText(ConfigUtil.ERROR_SMOOTH_ZOOM_DURATION_MILLIS_TOO_SMALL));
 		} else if (millis > ConfigUtil.MAX_SMOOTH_ZOOM_DURATION_MILLIS) {
-			return Optional.of(Text.translatable(ConfigUtil.ERROR_SMOOTH_ZOOM_DURATION_MILLIS_TOO_LARGE));
+			return Optional.of(new TranslatableText(ConfigUtil.ERROR_SMOOTH_ZOOM_DURATION_MILLIS_TOO_LARGE));
 		}
 
 		return Optional.empty();
